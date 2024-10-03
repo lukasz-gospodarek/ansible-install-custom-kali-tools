@@ -1,0 +1,6 @@
+- name: Install joplin
+  apt:
+    name: joplin
+    state: latest
+  environment:
+    DEBIAN_FRONTEND: noninteractive

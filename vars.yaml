@@ -5,6 +5,7 @@ tools_playbooks:
   - apt_kali_everything_install
   - apt_sshfs_install
   - apt_remmina_install
+  - apt_joplin_install
 # CODE
   - apt_code_install
   - code_remote_ssh_extension
