@@ -3,3 +3,5 @@ tools_playbooks:
   - apt_upgrade_full
   - apt_kali_everything_install
   - apt_sshfs_install
+  - apt_remmina_install
+  - apt_code_install

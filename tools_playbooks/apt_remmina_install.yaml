@@ -1,0 +1,6 @@
+- name: Install remmina
+  apt:
+    name: remmina*
+    state: latest
+  environment:
+    DEBIAN_FRONTEND: noninteractive
