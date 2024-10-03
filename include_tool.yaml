@@ -1,7 +1,2 @@
-# - name: Upgrade all apt packages
-#   debug:
-#     msg: 
-#     - Start "{{ item }}"
-
 - name: Include tool "{{ item }}" playbook
   include_tasks: "tools_playbooks/{{ item }}.yaml"
