@@ -2,3 +2,4 @@ tools_playbooks:
 # CORE
   - apt_upgrade_full
   - apt_kali_everything_install
+  - apt_sshfs_install

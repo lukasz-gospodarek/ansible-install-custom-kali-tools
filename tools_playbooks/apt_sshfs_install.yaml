@@ -1,0 +1,6 @@
+- name: Install sshfs
+  apt:
+    name: sshfs
+    state: latest
+  environment:
+    DEBIAN_FRONTEND: noninteractive
