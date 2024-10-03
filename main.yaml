@@ -1,0 +1,10 @@
+- name: Instal tools
+  hosts: localhost
+  become: yes
+  vars_files:
+    - vars.yaml
+  tasks:
+
+    - name: Tools Loop Start
+      include_tasks: include_tool.yaml
+      loop: "{{ tools_playbooks }}"
