@@ -1,0 +1,6 @@
+- name: Install peass
+  apt:
+    name: peass
+    state: latest
+  environment:
+    DEBIAN_FRONTEND: noninteractive

@@ -1,0 +1,6 @@
+- name: Install genisoimage
+  apt:
+    name: genisoimage
+    state: latest
+  environment:
+    DEBIAN_FRONTEND: noninteractive
