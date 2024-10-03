@@ -11,6 +11,8 @@ tools_playbooks:
   - apt_chisel_install
   - apt_gnome_disk_utility_install
   - apt_jq_install
+  - apt_libreoffice_install
+  - apt_terminator_install
 # CODE
   - apt_code_install
   - code_remote_ssh_extension

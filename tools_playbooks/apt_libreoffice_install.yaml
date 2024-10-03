@@ -1,0 +1,6 @@
+- name: Install libreoffice
+  apt:
+    name: libreoffice
+    state: latest
+  environment:
+    DEBIAN_FRONTEND: noninteractive
