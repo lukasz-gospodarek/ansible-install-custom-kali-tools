@@ -1,0 +1,6 @@
+- name: Install isomaster
+  apt:
+    name: isomaster
+    state: latest
+  environment:
+    DEBIAN_FRONTEND: noninteractive

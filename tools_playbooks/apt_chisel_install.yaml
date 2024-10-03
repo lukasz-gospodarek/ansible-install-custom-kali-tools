@@ -1,0 +1,6 @@
+- name: Install chisel
+  apt:
+    name: chisel
+    state: latest
+  environment:
+    DEBIAN_FRONTEND: noninteractive

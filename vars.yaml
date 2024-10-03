@@ -8,6 +8,9 @@ tools_playbooks:
   - apt_joplin_install
   - apt_genisoimage_install
   - apt_peass_install
+  - apt_chisel_install
+  - apt_isomaster_install
+  - apt_jq_install
 # CODE
   - apt_code_install
   - code_remote_ssh_extension
