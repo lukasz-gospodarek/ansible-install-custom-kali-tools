@@ -1,0 +1,20 @@
+- name: Install docker.io & docker-compose
+  apt:
+    name: 
+      - docker.io
+      - docker-compose
+    state: latest
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+
+- name: Add the user to docker group
+  user:
+    name: "{{ kali_username }}"
+    groups: docker
+    append: yes
+
+- name: Start & Enable docker service
+  systemd_service:
+    name: docker
+    state: restarted
+    enabled: true

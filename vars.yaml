@@ -30,3 +30,5 @@ tools_playbooks:
   - apt_xrdp_install
   - apt_ssh_server_install
   - apt_vnc_server_install
+# DOCKER
+  - apt_docker_engine_install
