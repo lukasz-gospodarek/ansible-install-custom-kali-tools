@@ -1,6 +1,6 @@
-- name: Install isomaster
+- name: Install gnome-disk-utility
   apt:
-    name: isomaster
+    name: gnome-disk-utility
     state: latest
   environment:
     DEBIAN_FRONTEND: noninteractive

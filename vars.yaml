@@ -9,7 +9,7 @@ tools_playbooks:
   - apt_genisoimage_install
   - apt_peass_install
   - apt_chisel_install
-  - apt_isomaster_install
+  - apt_gnome_disk_utility_install
   - apt_jq_install
 # CODE
   - apt_code_install
