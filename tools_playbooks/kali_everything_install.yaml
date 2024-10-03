@@ -1,0 +1,6 @@
+- name: Install kali-linux-everything
+  apt:
+    name: kali-linux-everything
+    state: latest
+  environment:
+    DEBIAN_FRONTEND: noninteractive
