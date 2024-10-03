@@ -1,0 +1,12 @@
+- name: Install openssh-server
+  apt:
+    name: openssh-server
+    state: latest
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+
+- name: Start & Enable ssh service
+  systemd_service:
+    name: ssh
+    state: restarted
+    enabled: true

@@ -1,0 +1,12 @@
+- name: Install xrdp
+  apt:
+    name: xrdp
+    state: latest
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+
+- name: Start & Enable xrdp service
+  systemd_service:
+    name: xrdp
+    state: restarted
+    enabled: true

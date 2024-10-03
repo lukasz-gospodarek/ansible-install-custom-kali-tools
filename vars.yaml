@@ -26,3 +26,7 @@ tools_playbooks:
   - code_powershell_extension
   - code_cpptools_extension
   - code_firefox_debug_extension
+# REMOTE
+  - apt_xrdp_install
+  - apt_ssh_server_install
+  - apt_vnc_server_install

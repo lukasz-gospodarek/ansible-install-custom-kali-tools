@@ -1,0 +1,6 @@
+- name: Install x11vnc
+  apt:
+    name: x11vnc
+    state: latest
+  environment:
+    DEBIAN_FRONTEND: noninteractive
