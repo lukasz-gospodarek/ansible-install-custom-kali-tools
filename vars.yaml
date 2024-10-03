@@ -1,4 +1,4 @@
 tools_playbooks:
 # CORE
-  - kali_full_upgrade
-  - kali_everything_install
+  - apt_upgrade_full
+  - apt_kali_everything_install
