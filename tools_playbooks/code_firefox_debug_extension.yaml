@@ -1,0 +1,3 @@
+- name: Install code vscode-firefox-debug extension
+  become_user: "{{ kali_username }}"
+  shell: code --install-extension firefox-devtools.vscode-firefox-debug

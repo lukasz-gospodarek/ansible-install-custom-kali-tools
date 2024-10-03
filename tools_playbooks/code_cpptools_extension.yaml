@@ -1,0 +1,3 @@
+- name: Install code cpptools extension
+  become_user: "{{ kali_username }}"
+  shell: code --install-extension ms-vscode.cpptools

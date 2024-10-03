@@ -1,0 +1,3 @@
+- name: Install code markdown-image extension
+  become_user: "{{ kali_username }}"
+  shell: code --install-extension hancel.markdown-image

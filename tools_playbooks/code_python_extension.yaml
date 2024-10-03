@@ -1,0 +1,3 @@
+- name: Install code python extension
+  become_user: "{{ kali_username }}"
+  shell: code --install-extension ms-python.python

@@ -1,0 +1,3 @@
+- name: Install code vscode-docker extension
+  become_user: "{{ kali_username }}"
+  shell: code --install-extension ms-azuretools.vscode-docker

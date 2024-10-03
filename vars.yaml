@@ -1,7 +1,20 @@
+kali_username: kali
 tools_playbooks:
 # CORE
   - apt_upgrade_full
   - apt_kali_everything_install
   - apt_sshfs_install
   - apt_remmina_install
+# CODE
   - apt_code_install
+  - code_remote_ssh_extension
+  - code_vscode_docker_extension
+  - code_python_extension
+  - code_hexeditor_extension
+  - code_markdown_editor_extension
+  - code_markdown_image_extension
+  - code_apklab_extension
+  - code_smalise_extension
+  - code_powershell_extension
+  - code_cpptools_extension
+  - code_firefox_debug_extension
