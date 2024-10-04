@@ -71,3 +71,5 @@
 6. Run main playbook
 
 `./ansible_run.sh`
+
+- pass sudo password as BECOME password
