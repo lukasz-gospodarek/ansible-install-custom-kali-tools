@@ -39,6 +39,7 @@ tools_playbooks:
   - tool_pingcastle_download
   - tool_sysinternals_download
   - tool_mimikatz_download
+  - tool_jdwp_shellifier_download
 # KNOWLAGE
   - knowledge_hacktricks_download
   - knowledge_payloadsallthethings_download

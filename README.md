@@ -38,6 +38,7 @@
   - PingCastle
   - SysInternals
   - Mimikatz
+  - JDWP shellifier
 - **Knowledge**
   - hacktricks
   - PayloadsAllTheThings

@@ -1,0 +1,11 @@
+- name: Create Tools Directory in not exist
+  include_tasks: subplaybooks/create_tools_dir.yaml
+
+- name: Clone jdwp-shellifier
+  become_user: "{{ kali_username }}"
+  git:
+    repo: https://github.com/IOActive/jdwp-shellifier.git
+    depth: 1
+    clone: true
+    force: true
+    dest: "{{ tools_directory }}/jdwp-shellifier"
