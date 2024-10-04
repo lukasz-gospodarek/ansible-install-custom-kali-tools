@@ -38,7 +38,7 @@
   - PingCastle
   - SysInternals
   - Mimikatz
-- **Knowlage**
+- **Knowledge**
   - hacktricks
   - PayloadsAllTheThings
 
@@ -65,7 +65,7 @@
   - edit `ansible-install-custom-kali-tools/vars.yaml`
   - Set **kali_username** it is username of your kali linux user (default: kali)
   - Set **tools_directory** it is a directory for downloaded & NOT installed tools (default: Desktop/tools)
-  - Set **knowlage_directory** it is a directory for downloaded knowlage databases (default: Desktop/knowlage)
+  - Set **knowledge_directory** it is a directory for downloaded knowledge databases (default: Desktop/knowledge)
   - Comment tools which you don't want to install from **tools_playbooks** list
 
 6. Run main playbook
