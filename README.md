@@ -39,6 +39,9 @@
   - SysInternals
   - Mimikatz
   - JDWP shellifier
+  - Docker Bench for Security
+  - deepsea-docker
+  - trivy
 - **Knowledge**
   - hacktricks
   - PayloadsAllTheThings

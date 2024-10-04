@@ -40,6 +40,9 @@ tools_playbooks:
   - tool_sysinternals_download
   - tool_mimikatz_download
   - tool_jdwp_shellifier_download
+  - tool_docker_bench_security_download
+  - tool_deepsea_download
+  - tool_trivy_download
 # KNOWLAGE
   - knowledge_hacktricks_download
   - knowledge_payloadsallthethings_download

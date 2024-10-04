@@ -1,0 +1,11 @@
+- name: Create Tools Directory in not exist
+  include_tasks: subplaybooks/create_tools_dir.yaml
+
+- name: Clone docker-bench-security
+  become_user: "{{ kali_username }}"
+  git:
+    repo: https://github.com/docker/docker-bench-security.git
+    depth: 1
+    clone: true
+    force: true
+    dest: "{{ tools_directory }}/docker-bench-security"
