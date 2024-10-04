@@ -1,0 +1,11 @@
+- name: Create Knowlage Directory in not exist
+  include_tasks: subplaybooks/create_knowlage_dir.yaml
+
+- name: Clone PayloadsAllTheThings
+  become_user: "{{ kali_username }}"
+  git:
+    repo: https://github.com/swisskyrepo/PayloadsAllTheThings.git
+    depth: 1
+    clone: true
+    force: true
+    dest: "{{ knowlage_directory }}/PayloadsAllTheThings"
