@@ -36,3 +36,4 @@ tools_playbooks:
   - apt_docker_engine_install
 # TOOLS
   - tool_pingcastle_download
+  - tool_sysinternals_download

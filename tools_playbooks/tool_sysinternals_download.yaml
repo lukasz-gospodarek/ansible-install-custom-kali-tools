@@ -1,0 +1,9 @@
+- name: Create Tools Directory in not exist
+  include_tasks: subplaybooks/create_tools_dir.yaml
+
+- name: Download Sysinternals File
+  get_url:
+    url: https://download.sysinternals.com/files/SysinternalsSuite.zip
+    dest: "{{ tools_directory }}"
+    owner: "{{ kali_username }}"
+    group: "{{ kali_username }}"
