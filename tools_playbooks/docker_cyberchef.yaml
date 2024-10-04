@@ -23,3 +23,11 @@
           container_name: cyberchef
           ports:
             - "48001:80"
+
+- name: Build CyberChef containers
+  docker_compose:
+    project_src: "{{ docker_containers_directory }}/cyberchef"
+    state: absent
+    build: true
+    nocache: true
+    recreate: always
