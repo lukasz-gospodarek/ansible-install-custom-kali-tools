@@ -1,0 +1,9 @@
+- name: Create Tools Directory in not exist
+  include_tasks: subplaybooks/create_tools_dir.yaml
+
+- name: Download Mimikatz File
+  get_url:
+    url: https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20210810-2/mimikatz_trunk.zip
+    dest: "{{ tools_directory }}"
+    owner: "{{ kali_username }}"
+    group: "{{ kali_username }}"

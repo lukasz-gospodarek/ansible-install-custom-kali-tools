@@ -37,3 +37,4 @@ tools_playbooks:
 # TOOLS
   - tool_pingcastle_download
   - tool_sysinternals_download
+  - tool_mimikatz_download
