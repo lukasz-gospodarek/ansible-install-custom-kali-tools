@@ -7,3 +7,4 @@
     dest: "{{ tools_directory }}"
     owner: "{{ kali_username }}"
     group: "{{ kali_username }}"
+    force: true

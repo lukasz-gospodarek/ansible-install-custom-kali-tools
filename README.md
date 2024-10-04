@@ -44,6 +44,11 @@
   - deepsea-docker
   - trivy
   - CyberChef
+  - Rubeus
+  - Certify
+  - SharpUp
+  - PowerView
+  - download_powerUpSQL
 - **Knowledge**
   - hacktricks
   - PayloadsAllTheThings

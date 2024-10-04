@@ -46,6 +46,11 @@ tools_playbooks:
   - tool_deepsea_download
   - tool_trivy_download
   - tool_cyberchef_download
+  - tool_certify_download
+  - tool_powerupsql_download
+  - tool_powerview_download
+  - tool_rubeus_download
+  - tool_sharpup_download
 # KNOWLAGE
   - knowledge_hacktricks_download
   - knowledge_payloadsallthethings_download

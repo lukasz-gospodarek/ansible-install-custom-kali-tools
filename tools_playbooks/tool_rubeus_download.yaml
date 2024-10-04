@@ -1,9 +1,9 @@
 - name: Create Tools Directory in not exist
   include_tasks: subplaybooks/create_tools_dir.yaml
 
-- name: Download Sysinternals File
+- name: Download rubeus File
   get_url:
-    url: https://download.sysinternals.com/files/SysinternalsSuite.zip
+    url: https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/raw/master/Rubeus.exe
     dest: "{{ tools_directory }}"
     owner: "{{ kali_username }}"
     group: "{{ kali_username }}"
