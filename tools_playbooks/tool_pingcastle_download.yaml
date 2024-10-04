@@ -15,3 +15,5 @@
   get_url:
     url: "{{ pingcastle_url }}"
     dest: "{{ tools_directory }}"
+    owner: "{{ kali_username }}"
+    group: "{{ kali_username }}"
