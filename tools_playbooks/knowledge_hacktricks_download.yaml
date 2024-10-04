@@ -1,5 +1,5 @@
-- name: Create Knowlage Directory in not exist
-  include_tasks: subplaybooks/create_knowlage_dir.yaml
+- name: Create Knowledge Directory in not exist
+  include_tasks: subplaybooks/create_knowledge_dir.yaml
 
 - name: Clone hacktricks
   become_user: "{{ kali_username }}"
@@ -8,4 +8,4 @@
     depth: 1
     clone: true
     force: true
-    dest: "{{ knowlage_directory }}/hacktricks"
+    dest: "{{ knowledge_directory }}/hacktricks"

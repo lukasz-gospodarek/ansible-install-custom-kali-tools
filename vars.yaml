@@ -1,6 +1,6 @@
 kali_username: kali
 tools_directory: "/home/{{ kali_username }}/Desktop/tools"
-knowlage_directory: "/home/{{ kali_username }}/Desktop/knowlage"
+knowledge_directory: "/home/{{ kali_username }}/Desktop/knowledge"
 tools_playbooks:
 # CORE
   - apt_upgrade_full
@@ -40,5 +40,5 @@ tools_playbooks:
   - tool_sysinternals_download
   - tool_mimikatz_download
 # KNOWLAGE
-  - knowlage_hacktricks_download
-  - knowlage_payloadsallthethings_download
+  - knowledge_hacktricks_download
+  - knowledge_payloadsallthethings_download
