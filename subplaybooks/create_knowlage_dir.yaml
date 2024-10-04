@@ -1,0 +1,6 @@
+- name: Knowlage Directory
+  file:
+    path: "{{ knowlage_directory }}"
+    state: directory
+    owner: "{{ kali_username }}"
+    group: "{{ kali_username }}"
