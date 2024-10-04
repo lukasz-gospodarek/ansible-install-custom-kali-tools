@@ -1,4 +1,5 @@
 kali_username: kali
+tools_directory: "/home/{{ kali_username }}/Desktop/tools"
 tools_playbooks:
 # CORE
   - apt_upgrade_full
@@ -33,3 +34,5 @@ tools_playbooks:
   - apt_vnc_server_install
 # DOCKER
   - apt_docker_engine_install
+# TOOLS
+  - tool_pingcastle_download

@@ -1,0 +1,6 @@
+- name: Tools Directory
+  file:
+    path: "{{ tools_directory }}"
+    state: directory
+    owner: "{{ kali_username }}"
+    group: "{{ kali_username }}"

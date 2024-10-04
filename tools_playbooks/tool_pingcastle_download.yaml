@@ -1,0 +1,17 @@
+- name: Create Tools Directory in not exist
+  include_tasks: subplaybooks/create_tools_dir.yaml
+
+- name: Get content of PingCastle Download site
+  uri:
+    url: https://www.pingcastle.com/download/
+    return_content: true
+  register: pingcastle_download_site_response
+
+- name: Grep Pingcastle Download URL
+  set_fact:
+    pingcastle_url: "{{ pingcastle_download_site_response.content | regex_search('https://github.com/vletoux/pingcastle/releases/download/[0-9.]*/PingCastle_[0-9.]*.zip', ignorecase=True, multiline=True) }}"
+
+- name: Download Pingcastle File
+  get_url:
+    url: "{{ pingcastle_url }}"
+    dest: "{{ tools_directory }}"
