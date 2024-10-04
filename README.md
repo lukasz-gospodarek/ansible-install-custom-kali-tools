@@ -34,6 +34,7 @@
   - VNC Server
 - **Docker**
   - Docker Engine
+  - CyberChef container
 - **Tools**
   - PingCastle
   - SysInternals
@@ -42,6 +43,7 @@
   - Docker Bench for Security
   - deepsea-docker
   - trivy
+  - CyberChef
 - **Knowledge**
   - hacktricks
   - PayloadsAllTheThings

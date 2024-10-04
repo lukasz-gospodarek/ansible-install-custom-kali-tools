@@ -1,0 +1,25 @@
+- name: Create Tools Directory in not exist
+  include_tasks: subplaybooks/create_docker_containers_dir.yaml
+
+- name: Clone CyberChef
+  become_user: "{{ kali_username }}"
+  git:
+    repo: https://github.com/gchq/CyberChef.git
+    depth: 1
+    clone: true
+    force: true
+    dest: "{{ docker_containers_directory }}/cyberchef"
+
+- name: Create VNC systemd service file
+  copy:
+    dest: "{{ docker_containers_directory }}/cyberchef/docker-compose.yaml"
+    owner: "{{ kali_username }}"
+    group: "{{ kali_username }}"
+    content: |
+      version: '3'
+      services:
+        cyberchef:
+          build: .
+          container_name: cyberchef
+          ports:
+            - "48001:80"

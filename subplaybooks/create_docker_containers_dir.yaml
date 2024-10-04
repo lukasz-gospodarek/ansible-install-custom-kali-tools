@@ -1,0 +1,6 @@
+- name: Docker Containers Directory
+  file:
+    path: "{{ docker_containers_directory }}"
+    state: directory
+    owner: "{{ kali_username }}"
+    group: "{{ kali_username }}"

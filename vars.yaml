@@ -1,6 +1,7 @@
 kali_username: kali
 tools_directory: "/home/{{ kali_username }}/Desktop/tools"
 knowledge_directory: "/home/{{ kali_username }}/Desktop/knowledge"
+docker_containers_directory: "/home/{{ kali_username }}/Desktop/docker_containers"
 tools_playbooks:
 # CORE
   - apt_upgrade_full
@@ -35,6 +36,7 @@ tools_playbooks:
   - apt_vnc_server_install
 # DOCKER
   - apt_docker_engine_install
+  - docker_cyberchef
 # TOOLS
   - tool_pingcastle_download
   - tool_sysinternals_download
@@ -43,6 +45,7 @@ tools_playbooks:
   - tool_docker_bench_security_download
   - tool_deepsea_download
   - tool_trivy_download
+  - tool_cyberchef_download
 # KNOWLAGE
   - knowledge_hacktricks_download
   - knowledge_payloadsallthethings_download

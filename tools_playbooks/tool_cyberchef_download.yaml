@@ -1,0 +1,24 @@
+- name: Create Tools Directory in not exist
+  include_tasks: subplaybooks/create_tools_dir.yaml
+
+- name: Get content of CyberChef Download site
+  uri:
+    url: https://gchq.github.io/CyberChef/
+    return_content: true
+  register: cyberchef_download_site_response
+
+- name: Grep CyberChef Download URL
+  set_fact:
+    cyberchef_url: "{{ cyberchef_download_site_response.content | regex_search('CyberChef_v[0-9.]*.zip', ignorecase=True, multiline=True) }}"
+
+- name: Download CyberChef File
+  get_url:
+    url: "https://gchq.github.io/CyberChef/{{ cyberchef_url }}"
+    dest: "{{ tools_directory }}"
+    owner: "{{ kali_username }}"
+    group: "{{ kali_username }}"
+
+- name: debug
+  debug:
+    msg:
+      - "{{ cyberchef_url }}"
