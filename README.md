@@ -79,3 +79,12 @@
 `./ansible_run.sh`
 
 - pass sudo password as BECOME password
+
+## LOCALHOST PORTS
+
+```
+22 - openssh-server
+3389 - rdp server
+5900 - x11vnc server
+48001 - CyberChef container
+```
