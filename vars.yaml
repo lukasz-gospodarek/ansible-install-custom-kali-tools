@@ -52,6 +52,7 @@ tools_playbooks:
   - tool_powerview_download
   - tool_rubeus_download
   - tool_sharpup_download
+  - tool_gitleaks_download
 # KNOWLAGE
   - knowledge_hacktricks_download
   - knowledge_payloadsallthethings_download

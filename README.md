@@ -49,7 +49,8 @@
   - Certify
   - SharpUp
   - PowerView
-  - download_powerUpSQL
+  - powerUpSQL
+  - gitleaks (newest from GitHub)
 - **Knowledge**
   - hacktricks
   - PayloadsAllTheThings
@@ -124,3 +125,8 @@
 
 1. Go to docker compose file path: `cd ~/Desktop/docker_containers/openvas`
 2. Down container: `sudo docker-compose down`
+
+### gitleaks
+
+1. Go to file path: `cd ~/Desktop/tools/gitleaks`
+2. Up container: `./gitleaks help`
