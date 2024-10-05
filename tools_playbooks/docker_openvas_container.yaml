@@ -1,0 +1,29 @@
+- name: Create Tools Directory in not exist
+  include_tasks: subplaybooks/create_docker_containers_dir.yaml
+
+- name: Create OpenVAS directory
+  file:
+    path: "{{ docker_containers_directory }}/openvas"
+    state: directory
+    owner: kali
+    group: kali
+
+- name: Download docker-compose.yml for OpenVAS
+  get_url:
+    url: https://greenbone.github.io/docs/latest/_static/docker-compose-22.4.yml
+    dest: "{{ docker_containers_directory }}/openvas/docker-compose.yml"
+    owner: kali
+    group: kali
+
+- name: Build OpenVAS container
+  docker_compose:
+    project_src: "{{ docker_containers_directory }}/openvas"
+    pull: true
+    build: true
+    nocache: true
+    recreate: always
+
+- name: Down OpenVAS container
+  docker_compose:
+    project_src: "{{ docker_containers_directory }}/openvas"
+    state: absent
