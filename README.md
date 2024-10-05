@@ -51,6 +51,7 @@
   - PowerView
   - powerUpSQL
   - gitleaks (newest from GitHub)
+  - gitrob
 - **Knowledge**
   - hacktricks
   - PayloadsAllTheThings

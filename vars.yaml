@@ -53,6 +53,7 @@ tools_playbooks:
   - tool_rubeus_download
   - tool_sharpup_download
   - tool_gitleaks_download
+  - tool_gitrob_download
 # KNOWLAGE
   - knowledge_hacktricks_download
   - knowledge_payloadsallthethings_download
