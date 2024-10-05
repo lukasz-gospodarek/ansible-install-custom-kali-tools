@@ -96,3 +96,31 @@
 9392 - OpenVAS container
 48001 - CyberChef container
 ```
+
+## TOOLS RUN INSTRUCTIONS
+
+### Docker CyberChef container
+
+- **Run container**
+
+1. Go to docker compose file path: `cd ~/Desktop/docker_containers/cyberchef`
+2. Up container: `sudo docker-compose up -d`
+3. Open http://127.0.0.1:48001 in browser
+
+- **Down container**
+
+1. Go to docker compose file path: `cd ~/Desktop/docker_containers/cyberchef`
+2. Down container: `sudo docker-compose down`
+
+### Docker OpenVAS container
+
+- **Run container**
+
+1. Go to docker compose file path: `cd ~/Desktop/docker_containers/openvas`
+2. Up container: `sudo docker-compose up -d`
+3. Open http://127.0.0.1:9392 in browser
+
+- **Down container**
+
+1. Go to docker compose file path: `cd ~/Desktop/docker_containers/openvas`
+2. Down container: `sudo docker-compose down`
