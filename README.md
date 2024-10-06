@@ -36,6 +36,7 @@
   - Docker Engine
   - CyberChef container
   - OpenVAS container
+  - Nessus container
 - **Tools**
   - PingCastle
   - SysInternals
@@ -95,6 +96,7 @@
 22 - openssh-server
 3389 - rdp server
 5900 - x11vnc server
+8834 - Nessus container
 9392 - OpenVAS container
 48001 - CyberChef container
 ```

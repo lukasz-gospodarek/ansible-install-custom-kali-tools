@@ -38,6 +38,7 @@ tools_playbooks:
   - apt_docker_engine_install
   - docker_cyberchef_container
   - docker_openvas_container
+  - docker_nessus_container
 # TOOLS
   - tool_pingcastle_download
   - tool_sysinternals_download

@@ -10,7 +10,7 @@
     force: true
     dest: "{{ docker_containers_directory }}/cyberchef"
 
-- name: Create VNC systemd service file
+- name: Create docker-compose file
   copy:
     dest: "{{ docker_containers_directory }}/cyberchef/docker-compose.yaml"
     owner: "{{ kali_username }}"

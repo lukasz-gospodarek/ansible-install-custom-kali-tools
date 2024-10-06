@@ -1,0 +1,70 @@
+- name: Create Tools Directory in not exist
+  include_tasks: subplaybooks/create_docker_containers_dir.yaml
+
+- name: Create nessus directory
+  file:
+    path: "{{ docker_containers_directory }}/nessus"
+    state: directory
+    owner: kali
+    group: kali
+
+- name: Create nessus variables file
+  when: nessus.activation_code is defined
+  lineinfile:
+    mode: 660
+    path: "{{ docker_containers_directory }}/nessus/variables.env"
+    create: yes
+    state: present
+    regexp: ^ACTIVATION_CODE
+    line: ACTIVATION_CODE={{ nessus.activation_code }}
+
+- name: Create nessus variables file
+  when: nessus.username is defined
+  lineinfile:
+    mode: 660
+    path: "{{ docker_containers_directory }}/nessus/variables.env"
+    create: yes
+    state: present
+    regexp: ^USERNAME
+    line: USERNAME={{ nessus.username }}
+
+- name: Create nessus variables file
+  when: nessus.password is defined
+  lineinfile:
+    mode: 660
+    path: "{{ docker_containers_directory }}/nessus/variables.env"
+    create: yes
+    state: present
+    regexp: ^PASSWORD
+    line: PASSWORD={{ nessus.password }}
+
+- name: Create nessus directory
+  file:
+    path: "{{ docker_containers_directory }}/nessus/variables.env"
+    state: touch
+
+- name: Create docker-compose file
+  copy:
+    dest: "{{ docker_containers_directory }}/nessus/docker-compose.yaml"
+    owner: "{{ kali_username }}"
+    group: "{{ kali_username }}"
+    content: |
+      version: '3'
+      services:
+        nessus:
+          image: tenable/nessus:latest-oracle
+          container_name: nessus
+          ports:
+            - "8834:8834"
+          env_file:
+            - variables.env
+          volumes:
+            - ./data_opt:/opt
+
+- name: Build nessus container
+  docker_compose:
+    project_src: "{{ docker_containers_directory }}/nessus"
+    pull: true
+    build: true
+    nocache: true
+    recreate: always
