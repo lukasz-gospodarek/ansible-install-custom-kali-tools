@@ -1,3 +1,3 @@
 #!/bin/bash
 sudo apt update
-sudo apt install ansible -y
+sudo apt install ansible-core -y
