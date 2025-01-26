@@ -1,3 +1,9 @@
+- name: Remove code-oss
+  apt:
+    name: code-oss
+    state: absent
+    purge: true
+
 - name: Install code
   apt:
     deb: http://go.microsoft.com/fwlink/?LinkID=760868
