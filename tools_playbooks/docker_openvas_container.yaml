@@ -10,20 +10,19 @@
 
 - name: Download docker-compose.yml for OpenVAS
   get_url:
-    url: https://greenbone.github.io/docs/latest/_static/docker-compose-22.4.yml
+    url: https://greenbone.github.io/docs/latest/_static/docker-compose.yml
     dest: "{{ docker_containers_directory }}/openvas/docker-compose.yml"
     owner: kali
     group: kali
 
 - name: Build OpenVAS container
-  docker_compose:
+  community.docker.docker_compose_v2:
     project_src: "{{ docker_containers_directory }}/openvas"
-    pull: true
-    build: true
-    nocache: true
+    pull: always
+    build: always
     recreate: always
 
 - name: Down OpenVAS container
-  docker_compose:
+  community.docker.docker_compose_v2:
     project_src: "{{ docker_containers_directory }}/openvas"
     state: absent

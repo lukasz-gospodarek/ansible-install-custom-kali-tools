@@ -49,7 +49,6 @@
     owner: "{{ kali_username }}"
     group: "{{ kali_username }}"
     content: |
-      version: '3'
       services:
         nessus:
           image: tenable/nessus:latest-oracle
@@ -62,9 +61,8 @@
             - ./data_opt:/opt
 
 - name: Build nessus container
-  docker_compose:
+  community.docker.docker_compose_v2:
     project_src: "{{ docker_containers_directory }}/nessus"
-    pull: true
-    build: true
-    nocache: true
+    pull: always
+    build: always
     recreate: always

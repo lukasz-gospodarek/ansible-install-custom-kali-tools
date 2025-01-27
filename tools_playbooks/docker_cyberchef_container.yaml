@@ -16,7 +16,6 @@
     owner: "{{ kali_username }}"
     group: "{{ kali_username }}"
     content: |
-      version: '3'
       services:
         cyberchef:
           build: .
@@ -25,10 +24,9 @@
             - "48001:80"
 
 - name: Build CyberChef container
-  docker_compose:
+  community.docker.docker_compose_v2:
     project_src: "{{ docker_containers_directory }}/cyberchef"
     state: absent
-    pull: true
-    build: true
-    nocache: true
+    pull: always
+    build: always
     recreate: always

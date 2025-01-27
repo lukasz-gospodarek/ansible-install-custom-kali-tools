@@ -1,8 +1,21 @@
-- name: Install docker.io & docker-compose
+- name: Add Docker Key & Repository 
+  block:
+    - name: Add Docker Repository Key
+      get_url:
+        url: https://download.docker.com/linux/debian/gpg
+        dest: /etc/apt/keyrings/docker.gpg
+
+    - name: Add Docker Repository 
+      apt_repository:
+        repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian bookworm stable"
+        state: present
+
+- name: Install docker-ce
   apt:
     name: 
-      - docker.io
-      - docker-compose
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
     state: latest
   environment:
     DEBIAN_FRONTEND: noninteractive
