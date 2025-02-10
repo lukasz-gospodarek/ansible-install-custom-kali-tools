@@ -41,6 +41,7 @@ tools_playbooks:
   - docker_nessus_container
 # TOOLS
   - tool_pingcastle_download
+  - tool_purpleknight_download
   - tool_sysinternals_download
   - tool_mimikatz_download
   - tool_jdwp_shellifier_download

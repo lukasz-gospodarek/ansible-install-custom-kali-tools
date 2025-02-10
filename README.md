@@ -39,6 +39,7 @@
   - Nessus container
 - **Tools**
   - PingCastle
+  - PurpleKnight
   - SysInternals
   - Mimikatz
   - JDWP shellifier

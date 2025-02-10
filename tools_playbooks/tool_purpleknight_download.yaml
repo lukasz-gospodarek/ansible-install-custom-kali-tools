@@ -1,0 +1,10 @@
+- name: Create Tools Directory in not exist
+  include_tasks: subplaybooks/create_tools_dir.yaml
+
+- name: Download Purple Knight File
+  get_url:
+    url: https://semperis.com/downloads/tools/pk/PurpleKnight-Community.zip
+    dest: "{{ tools_directory }}"
+    owner: "{{ kali_username }}"
+    group: "{{ kali_username }}"
+    force: true
