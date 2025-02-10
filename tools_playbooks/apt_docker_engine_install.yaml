@@ -1,3 +1,11 @@
+- name: Create apt keyrings Directory if not exist
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+    owner: root
+    group: root
+    mode: '755'
+
 - name: Add Docker Key & Repository 
   block:
     - name: Add Docker Repository Key
@@ -17,6 +25,9 @@
       - docker-ce-cli
       - containerd.io
     state: latest
+    update_cache: yes
+    autoremove: yes
+    purge: yes
   environment:
     DEBIAN_FRONTEND: noninteractive
 
