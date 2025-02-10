@@ -79,6 +79,9 @@
 5. Set variables
 
   - edit `ansible-install-custom-kali-tools/vars.yaml`
+
+`nano vars.yaml`
+
   - Set **kali_username** it is username of your kali linux user (default: kali)
   - Set **tools_directory** it is a directory for downloaded & NOT installed tools (default: Desktop/tools)
   - Set **knowledge_directory** it is a directory for downloaded knowledge databases (default: Desktop/knowledge)
