@@ -2,5 +2,7 @@
   apt:
     upgrade: full
     update_cache: yes
+    autoremove: yes
+    purge: yes
   environment:
     DEBIAN_FRONTEND: noninteractive

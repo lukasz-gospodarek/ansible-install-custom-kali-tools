@@ -2,7 +2,8 @@
   apt:
     name: code-oss
     state: absent
-    purge: true
+    autoremove: yes
+    purge: yes
 
 - name: Install code
   apt:

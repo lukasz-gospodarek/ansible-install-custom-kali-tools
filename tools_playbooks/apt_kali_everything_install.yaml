@@ -2,5 +2,7 @@
   apt:
     name: kali-linux-everything
     state: latest
+    autoremove: yes
+    purge: yes
   environment:
     DEBIAN_FRONTEND: noninteractive
