@@ -36,7 +36,7 @@
   - Docker Engine
   - CyberChef container
   - OpenVAS container
-  - Nessus container
+  - Nessus container (please set secret)
 - **Tools**
   - PingCastle
   - PurpleKnight
@@ -88,11 +88,23 @@
   - Set **docker_containers_directory** it is a directory for docker containers (default: Desktop/docker_containers)
   - Comment tools which you don't want to install from **tools_playbooks** list
 
-6. Run main playbook
+6. Set secrets
+
+  - copy secrets file
+
+`cp vars_secret.yaml.example vars_secret.yaml`
+
+  - edit secrets file
+
+`nano vars_secret.yaml`
+
+7. Run main playbook
 
 `./ansible_run.sh`
 
-- pass sudo password as BECOME password
+  - pass sudo password as BECOME password
+
+8. Restart kali machine
 
 ## LOCALHOST PORTS
 
@@ -112,26 +124,41 @@
 - **Run container**
 
 1. Go to docker compose file path: `cd ~/Desktop/docker_containers/cyberchef`
-2. Up container: `sudo docker-compose up -d`
+2. Up container: `docker compose up -d`
 3. Open http://127.0.0.1:48001 in browser
 
 - **Down container**
 
 1. Go to docker compose file path: `cd ~/Desktop/docker_containers/cyberchef`
-2. Down container: `sudo docker-compose down`
+2. Down container: `docker compose down`
 
 ### Docker OpenVAS container
 
 - **Run container**
 
 1. Go to docker compose file path: `cd ~/Desktop/docker_containers/openvas`
-2. Up container: `sudo docker-compose up -d`
+2. Up container: `docker compose up -d`
 3. Open http://127.0.0.1:9392 in browser
+4. Login using `admin:admin`
 
 - **Down container**
 
 1. Go to docker compose file path: `cd ~/Desktop/docker_containers/openvas`
-2. Down container: `sudo docker-compose down`
+2. Down container: `docker compose down`
+
+### Docker Nessus container
+
+- **Run container**
+
+1. Go to docker compose file path: `cd ~/Desktop/docker_containers/nessus`
+2. Up container: `docker compose up -d`
+3. Open http://127.0.0.1:8834 in browser
+4. Login using `admin:admin` or different creds you set in vars_secret
+
+- **Down container**
+
+1. Go to docker compose file path: `cd ~/Desktop/docker_containers/nessus`
+2. Down container: `docker compose down`
 
 ### gitleaks
 

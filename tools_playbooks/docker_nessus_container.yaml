@@ -9,7 +9,9 @@
     group: kali
 
 - name: Create nessus variables file
-  when: nessus.activation_code is defined
+  when:
+    - nessus.activation_code is defined
+    - nessus.activation_code != 'XXXX-XXXX-XXXX-XXXX'
   lineinfile:
     mode: 660
     path: "{{ docker_containers_directory }}/nessus/variables.env"
@@ -51,14 +53,11 @@
     content: |
       services:
         nessus:
-          image: tenable/nessus:latest-oracle
           container_name: nessus
-          ports:
-            - "8834:8834"
+          image: tenable/nessus:latest-ubuntu
           env_file:
             - variables.env
-          volumes:
-            - ./data_opt:/opt
+          entrypoint: tail -f /dev/null
 
 - name: Build nessus container
   community.docker.docker_compose_v2:
@@ -66,3 +65,28 @@
     pull: always
     build: always
     recreate: always
+
+- name: Execute docker cp command
+  shell: docker cp -a nessus:/opt {{ docker_containers_directory }}/nessus
+
+- name: Down nessus container
+  community.docker.docker_compose_v2:
+    project_src: "{{ docker_containers_directory }}/nessus"
+    state: absent
+
+- name: Update docker-compose file
+  copy:
+    dest: "{{ docker_containers_directory }}/nessus/docker-compose.yaml"
+    owner: "{{ kali_username }}"
+    group: "{{ kali_username }}"
+    content: |
+      services:
+        nessus:
+          container_name: nessus
+          image: tenable/nessus:latest-ubuntu
+          ports:
+            - "8834:8834"
+          env_file:
+            - variables.env
+          volumes:
+            - ./opt:/opt
