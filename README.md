@@ -152,7 +152,7 @@
 
 1. Go to docker compose file path: `cd ~/Desktop/docker_containers/nessus`
 2. Up container: `docker compose up -d`
-3. Open http://127.0.0.1:8834 in browser
+3. Open https://127.0.0.1:8834 in browser
 4. Login using `admin:admin` or different creds you set in vars_secret
 
 - **Down container**
