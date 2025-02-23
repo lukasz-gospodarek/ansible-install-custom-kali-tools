@@ -15,6 +15,76 @@
     owner: kali
     group: kali
 
+- name: Remove volume greenbone-community-edition_cert_data_vol
+  community.docker.docker_volume:
+    volume_name: greenbone-community-edition_cert_data_vol
+    state: absent
+
+- name: Remove volume greenbone-community-edition_data_objects_vol
+  community.docker.docker_volume:
+    volume_name: greenbone-community-edition_data_objects_vol
+    state: absent
+
+- name: Remove volume greenbone-community-edition_gpg_data_vol
+  community.docker.docker_volume:
+    volume_name: greenbone-community-edition_gpg_data_vol
+    state: absent
+
+- name: Remove volume greenbone-community-edition_gvmd_data_vol
+  community.docker.docker_volume:
+    volume_name: greenbone-community-edition_gvmd_data_vol
+    state: absent
+
+- name: Remove volume greenbone-community-edition_gvmd_socket_vol
+  community.docker.docker_volume:
+    volume_name: greenbone-community-edition_gvmd_socket_vol
+    state: absent
+
+- name: Remove volume greenbone-community-edition_notus_data_vol
+  community.docker.docker_volume:
+    volume_name: greenbone-community-edition_notus_data_vol
+    state: absent
+
+- name: Remove volume greenbone-community-edition_openvas_data_vol
+  community.docker.docker_volume:
+    volume_name: greenbone-community-edition_openvas_data_vol
+    state: absent
+
+- name: Remove volume greenbone-community-edition_openvas_log_data_vol
+  community.docker.docker_volume:
+    volume_name: greenbone-community-edition_openvas_log_data_vol
+    state: absent
+
+- name: Remove volume greenbone-community-edition_ospd_openvas_socket_vol
+  community.docker.docker_volume:
+    volume_name: greenbone-community-edition_ospd_openvas_socket_vol
+    state: absent
+
+- name: Remove volume greenbone-community-edition_psql_data_vol
+  community.docker.docker_volume:
+    volume_name: greenbone-community-edition_psql_data_vol
+    state: absent
+
+- name: Remove volume greenbone-community-edition_psql_socket_vol
+  community.docker.docker_volume:
+    volume_name: greenbone-community-edition_psql_socket_vol
+    state: absent
+
+- name: Remove volume greenbone-community-edition_redis_socket_vol
+  community.docker.docker_volume:
+    volume_name: greenbone-community-edition_redis_socket_vol
+    state: absent
+
+- name: Remove volume greenbone-community-edition_scap_data_vol
+  community.docker.docker_volume:
+    volume_name: greenbone-community-edition_scap_data_vol
+    state: absent
+
+- name: Remove volume greenbone-community-edition_vt_data_vol
+  community.docker.docker_volume:
+    volume_name: greenbone-community-edition_vt_data_vol
+    state: absent
+
 - name: Build OpenVAS container
   community.docker.docker_compose_v2:
     project_src: "{{ docker_containers_directory }}/openvas"
@@ -22,7 +92,14 @@
     build: always
     recreate: always
 
+- name: Check if OpenVAS databases update finish
+  shell: docker logs greenbone-community-edition-gvmd-1 2>&1 | grep "Scan config"
+  register: scan_config
+  retries: 1440
+  delay: 60
+
 - name: Down OpenVAS container
   community.docker.docker_compose_v2:
     project_src: "{{ docker_containers_directory }}/openvas"
     state: absent
+  delay: 10
