@@ -5,8 +5,8 @@
   file:
     path: "{{ docker_containers_directory }}/nessus"
     state: directory
-    owner: kali
-    group: kali
+    owner: "{{ kali_username }}"
+    group: "{{ kali_username }}"
 
 - name: Create nessus variables file
   when:
