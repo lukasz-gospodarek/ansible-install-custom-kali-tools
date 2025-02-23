@@ -5,15 +5,21 @@
   file:
     path: "{{ docker_containers_directory }}/openvas"
     state: directory
-    owner: kali
-    group: kali
+    owner: "{{ kali_username }}"
+    group: "{{ kali_username }}"
 
 - name: Download docker-compose.yml for OpenVAS
   get_url:
     url: https://greenbone.github.io/docs/latest/_static/docker-compose.yml
     dest: "{{ docker_containers_directory }}/openvas/docker-compose.yml"
-    owner: kali
-    group: kali
+    owner: "{{ kali_username }}"
+    group: "{{ kali_username }}"
+
+- name: Down OpenVAS container if up
+  community.docker.docker_compose_v2:
+    project_src: "{{ docker_containers_directory }}/openvas"
+    state: absent
+  ignore_errors: yes
 
 - name: Remove volume greenbone-community-edition_cert_data_vol
   community.docker.docker_volume:
