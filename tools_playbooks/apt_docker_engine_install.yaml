@@ -12,6 +12,7 @@
       get_url:
         url: https://download.docker.com/linux/debian/gpg
         dest: /etc/apt/keyrings/docker.gpg
+        validate_certs: no
 
     - name: Add Docker Repository 
       apt_repository:
