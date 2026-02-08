@@ -3,13 +3,21 @@
 
 - name: Get content of PingCastle Download site
   uri:
-    url: https://www.pingcastle.com/download/
+    url: https://github.com/netwrix/pingcastle/releases/latest
     return_content: true
   register: pingcastle_download_site_response
 
+- name: Create url_var variable
+  set_fact:
+    url_var: "{{ pingcastle_download_site_response.content  | regex_search('/netwrix/pingcastle/releases/tag/[0-9.]*', ignorecase=True, multiline=True)}}"
+
+- name: Create version_tag variable
+  set_fact:
+    version_tag: "{{ url_var.split('/')[-1] }}"
+
 - name: Grep Pingcastle Download URL
   set_fact:
-    pingcastle_url: "{{ pingcastle_download_site_response.content | regex_search('https://github.com/vletoux/pingcastle/releases/download/[0-9.]*/PingCastle_[0-9.]*.zip', ignorecase=True, multiline=True) }}"
+    pingcastle_url: "https://github.com/netwrix/pingcastle/releases/download/{{ version_tag }}/PingCastle_{{ version_tag }}.zip"
 
 - name: Download Pingcastle File
   get_url:
