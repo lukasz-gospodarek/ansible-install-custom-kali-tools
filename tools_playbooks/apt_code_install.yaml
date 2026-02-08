@@ -5,8 +5,78 @@
     autoremove: yes
     purge: yes
 
-- name: Install code
+- name: Install VS code
+  become: yes
   apt:
-    deb: http://go.microsoft.com/fwlink/?LinkID=760868
+    name:
+      - wget
+      - gnupg
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+ 
+- name: Ensure /usr/share/keyrings exists
+  file:
+    path: /usr/share/keyrings
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+
+- name: Check if Microsoft keyring already exists
+  stat:
+    path: /usr/share/keyrings/microsoft.gpg
+  register: microsoft_keyring
+
+- name: Download Microsoft signing key (ASCII)
+  get_url:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    dest: /tmp/microsoft.asc
+    mode: "0644"
+  register: microsoft_asc
+
+- name: Convert ASCII key to GPG keyring
+  become: yes
+  shell: gpg --quiet --dearmor --output /usr/share/keyrings/microsoft.gpg /tmp/microsoft.asc
+  when: microsoft_asc.changed or not microsoft_keyring.stat.exists
+
+- name: Set ownership and permissions on keyring
+  file:
+    path: /usr/share/keyrings/microsoft.gpg
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Remove temporary key file
+  file:
+    path: /tmp/microsoft.asc
+    state: absent
+
+- name: Create vscode.sources repo file
+  become: yes
+  copy:
+    dest: /etc/apt/sources.list.d/vscode.sources
+    content: |
+      Types: deb
+      URIs: https://packages.microsoft.com/repos/code
+      Suites: stable
+      Components: main
+      Architectures: amd64,arm64,armhf
+      Signed-By: /usr/share/keyrings/microsoft.gpg
+
+- name: Install apt-transport-https
+  become: yes
+  apt:
+    name:
+      - apt-transport-https
+    update_cache: yes
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+
+- name: Install vscode
+  become: yes
+  apt:
+    name:
+      - code
+    update_cache: yes
   environment:
     DEBIAN_FRONTEND: noninteractive
